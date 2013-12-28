@@ -36,7 +36,7 @@ var BTCE = function(apiKey, secret, nonceGenerator) {
       'Key': self.apiKey
     };
 
-    request({ url: self.url, method: "POST", form: params, headers: headers }, function(err, response, body) {
+    request({ url: self.url, method: "POST", form: params, headers: headers, timeout:15000 }, function(err, response, body) {
       if(err || response.statusCode !== 200) {
         return callback(new Error(err ? err : response.statusCode));
       }
